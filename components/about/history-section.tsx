@@ -49,51 +49,62 @@ export default function HistorySection() {
   })
 
   return (
-    <section className="bg-background/80 backdrop-blur-sm py-24" ref={ref}>
-      <div className="container px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
-        >
-          <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">Our Journey</h2>
-          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            From humble beginnings to becoming a premier finance club, here's how we've grown over the years
-          </p>
-        </motion.div>
+			<section className="bg-background/80 backdrop-blur-sm py-24" ref={ref}>
+				<div className="container px-4">
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+						transition={{ duration: 0.6 }}
+						className="mb-16 text-center"
+					>
+						<h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+							Our Journey
+						</h2>
+						<p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+							From humble beginnings to becoming a premier finance club, here's
+							how we've grown over the years
+						</p>
+					</motion.div>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-muted md:left-[80px] md:translate-x-0"></div>
+					<div className="relative">
+						{/* Timeline line */}
+						<div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-muted md:left-[80px] md:translate-x-0"></div>
 
-          <div className="space-y-12">
-            {milestones.map((milestone, index) => (
-              <motion.div
-                key={milestone.year}
-                initial={{ opacity: 0, y: 50 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="relative flex flex-col items-center md:flex-row"
-              >
-                {/* Year bubble */}
-                <div className="absolute left-1/2 -translate-x-1/2 md:left-[80px] md:translate-x-0">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-amber-600 text-white shadow-lg">
-                    <span className="text-lg font-bold">{milestone.year}</span>
-                  </div>
-                </div>
+						<div className="space-y-12">
+							{milestones.map((milestone, index) => (
+								<motion.div
+									key={`${milestone.year}-${milestone.title}`}
+									initial={{ opacity: 0, y: 50 }}
+									animate={
+										inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
+									}
+									transition={{ duration: 0.6, delay: index * 0.1 }}
+									className="relative flex flex-col items-center md:flex-row"
+								>
+									{/* Year bubble */}
+									<div className="absolute left-1/2 -translate-x-1/2 md:left-[80px] md:translate-x-0">
+										<div className="flex h-16 w-16 items-center justify-center rounded-full bg-amber-600 text-white shadow-lg">
+											<span className="text-lg font-bold">
+												{milestone.year}
+											</span>
+										</div>
+									</div>
 
-                {/* Content */}
-                <div className="mt-20 w-full rounded-xl bg-card/80 p-6 shadow-lg backdrop-blur-sm md:ml-[160px] md:mt-0">
-                  <h3 className="mb-2 text-xl font-bold">{milestone.title}</h3>
-                  <p className="text-muted-foreground">{milestone.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+									{/* Content */}
+									<div className="mt-20 w-full rounded-xl bg-card/80 p-6 shadow-lg backdrop-blur-sm md:ml-[160px] md:mt-0">
+										<h3 className="mb-2 text-xl font-bold">
+											{milestone.title}
+										</h3>
+										<p className="text-muted-foreground">
+											{milestone.description}
+										</p>
+									</div>
+								</motion.div>
+							))}
+						</div>
+					</div>
+				</div>
+			</section>
+		);
 }
 

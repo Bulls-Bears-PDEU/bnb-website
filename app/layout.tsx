@@ -1,6 +1,7 @@
 import type React from "react";
 import "@/app/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import ImagePreloader from "@/components/image-preloader";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -20,6 +21,8 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
+	const criticalImageSources = ["/images/main.png", "/bull-logo.png"];
+
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body>
@@ -29,6 +32,7 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
+					<ImagePreloader sources={criticalImageSources} />
 					{children}
 				</ThemeProvider>
 			</body>

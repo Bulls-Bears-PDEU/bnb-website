@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
+			"dev": "pnpm compress:images && next dev",
+			"build": "pnpm compress:images && next build",
+			"compress:images": "node scripts/compress-images.mjs",
+			"start": "next start",
+			"lint": "next lint"
+		},
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
     "@hookform/resolvers": "^5.2.2",
@@ -74,14 +75,15 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@types/node": "^25.5.0",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "@types/react-lazy-load-image-component": "^1.6.5",
-    "postcss": "^8.5.8",
-    "tailwindcss": "^4.2.2",
-    "typescript": "^5.9.3"
-  },
+			"@types/node": "^25.5.0",
+			"@types/react": "^19.2.14",
+			"@types/react-dom": "^19.2.3",
+			"@types/react-lazy-load-image-component": "^1.6.5",
+			"postcss": "^8.5.8",
+			"sharp": "^0.34.5",
+			"tailwindcss": "^4.2.2",
+			"typescript": "^5.9.3"
+		},
   "main": "index.js",
   "directories": {
     "lib": "lib"

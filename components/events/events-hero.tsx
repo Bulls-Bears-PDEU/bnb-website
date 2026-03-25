@@ -15,6 +15,9 @@ export default function EventsHero() {
   function calculateTimeLeft() {
     const now = new Date();
     const diffTime = nextEventDate.getTime() - now.getTime();
+    if (diffTime <= 0 || isNaN(diffTime)) {
+					return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+				}
     return {
       days: Math.floor(diffTime / (1000 * 60 * 60 * 24)),
       hours: Math.floor((diffTime / (1000 * 60 * 60)) % 24),

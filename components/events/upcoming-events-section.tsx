@@ -4,8 +4,8 @@ import { useInView } from "react-intersection-observer"
 import { motion } from "framer-motion"
 import { Calendar, MapPin, Clock, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
-import market_un from "@/public/events/Bulls& Bears.jpg"
+import { optimizeCloudinaryUrl } from "@/lib/image-utils";
+import Image from "next/image";
 
 const upcomingEvents = [
   // {
@@ -47,79 +47,99 @@ export default function UpcomingEventsSection() {
   })
 
   return (
-    <section className="bg-background/80 backdrop-blur-sm py-24" ref={ref}>
-      <div className="container px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="mb-12 text-center"
-        >
-          <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">Upcoming Events</h2>
-          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Mark your calendars for these exciting opportunities to learn and network
-          </p>
-        </motion.div>
+			<section className="bg-background/80 backdrop-blur-sm py-24" ref={ref}>
+				<div className="container px-4">
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+						transition={{ duration: 0.6 }}
+						className="mb-12 text-center"
+					>
+						<h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+							Upcoming Events
+						</h2>
+						<p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+							Mark your calendars for these exciting opportunities to learn and
+							network
+						</p>
+					</motion.div>
 
-        <div className="grid gap-8 md:gap-12">
-          {upcomingEvents.map((event, index) => (
-            <motion.div
-              key={event.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="overflow-hidden rounded-xl bg-card/90 shadow-lg backdrop-blur-sm border border-primary/10"
-            >
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="relative h-60 md:h-full overflow-hidden">
-                  <img
-                    src={typeof event.image === "string" ? event.image : event.image.src || "/placeholder.svg"}
-                    alt={event.title}
-                    className="h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
-                  <div className="absolute bottom-4 left-4 rounded-full bg-amber-600 px-3 py-1 text-xs font-medium text-white">
-                    {event.registrationOpen ? "Registration Open" : "Coming Soon"}
-                  </div>
-                </div>
+					<div className="grid gap-8 md:gap-12">
+						{upcomingEvents.map((event, index) => (
+							<motion.div
+								key={event.title}
+								initial={{ opacity: 0, y: 30 }}
+								animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+								transition={{ duration: 0.6, delay: index * 0.2 }}
+								className="overflow-hidden rounded-xl bg-card/90 shadow-lg backdrop-blur-sm border border-primary/10"
+							>
+								<div className="grid md:grid-cols-3 gap-6">
+									<div className="relative h-60 md:h-full overflow-hidden">
+										<Image
+											src={optimizeCloudinaryUrl(
+												typeof event.image === "string"
+													? event.image
+													: event.image.src || "/placeholder.svg",
+											)}
+											alt={event.title}
+											fill
+											className="h-full w-full object-cover"
+											loading="lazy"
+											sizes="(min-width: 768px) 33vw, 100vw"
+											unoptimized
+										/>
+										<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
+										<div className="absolute bottom-4 left-4 rounded-full bg-amber-600 px-3 py-1 text-xs font-medium text-white">
+											{event.registrationOpen
+												? "Registration Open"
+												: "Coming Soon"}
+										</div>
+									</div>
 
-                <div className="p-6 md:col-span-2">
-                  <h3 className="mb-3 text-2xl font-bold">{event.title}</h3>
+									<div className="p-6 md:col-span-2">
+										<h3 className="mb-3 text-2xl font-bold">{event.title}</h3>
 
-                  <div className="mb-4 grid grid-cols-2 gap-4">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Calendar className="h-4 w-4 text-primary" />
-                      <span>{event.date}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Clock className="h-4 w-4 text-primary" />
-                      <span>{event.time}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <MapPin className="h-4 w-4 text-primary" />
-                      <span>{event.location}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Users className="h-4 w-4 text-primary" />
-                      <span>{event.capacity}</span>
-                    </div>
-                  </div>
+										<div className="mb-4 grid grid-cols-2 gap-4">
+											<div className="flex items-center gap-2 text-sm text-muted-foreground">
+												<Calendar className="h-4 w-4 text-primary" />
+												<span>{event.date}</span>
+											</div>
+											<div className="flex items-center gap-2 text-sm text-muted-foreground">
+												<Clock className="h-4 w-4 text-primary" />
+												<span>{event.time}</span>
+											</div>
+											<div className="flex items-center gap-2 text-sm text-muted-foreground">
+												<MapPin className="h-4 w-4 text-primary" />
+												<span>{event.location}</span>
+											</div>
+											<div className="flex items-center gap-2 text-sm text-muted-foreground">
+												<Users className="h-4 w-4 text-primary" />
+												<span>{event.capacity}</span>
+											</div>
+										</div>
 
-                  <p className="mb-6 text-muted-foreground">{event.description}</p>
+										<p className="mb-6 text-muted-foreground">
+											{event.description}
+										</p>
 
-                  <div className="flex gap-4">
-                    <Button className="bg-amber-600 hover:bg-amber-700" disabled={!event.registrationOpen}>
-                      {event.registrationOpen ? "Register Now" : "Registration Coming Soon"}
-                    </Button>
-                    <Button variant="outline">Learn More</Button>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
+										<div className="flex gap-4">
+											<Button
+												className="bg-amber-600 hover:bg-amber-700"
+												disabled={!event.registrationOpen}
+											>
+												{event.registrationOpen
+													? "Register Now"
+													: "Registration Coming Soon"}
+											</Button>
+											<Button variant="outline">Learn More</Button>
+										</div>
+									</div>
+								</div>
+							</motion.div>
+						))}
+					</div>
+				</div>
+			</section>
+		);
 }
 
