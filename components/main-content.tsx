@@ -11,6 +11,26 @@ import Footer from "@/components/layout/footer"
 import Header from "@/components/layout/header"
 import { motion, AnimatePresence } from "framer-motion"
 
+const containerVariants = {
+	hidden: { opacity: 0 },
+	visible: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.12,
+			delayChildren: 0.1,
+		},
+	},
+};
+
+const sectionVariants = {
+	hidden: { opacity: 0, y: 26 },
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: { duration: 0.7, ease: "easeOut" },
+	},
+};
+
 export default function MainContent() {
   const [introCompleted, setIntroCompleted] = useState(false)
   const [mounted, setMounted] = useState(false)
@@ -40,20 +60,37 @@ export default function MainContent() {
   if (!mounted) return null
 
   return (
-    <AnimatePresence>
-      {introCompleted && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
-          <Header />
-          <HeroSection />
-          <AboutSection />
-          <CoreMembersSection />
-          <HeadsSection />
-          <EventsSection />
-          <ContactSection />
-          <Footer />
-        </motion.div>
-      )}
-    </AnimatePresence>
-  )
+			<AnimatePresence>
+				{introCompleted && (
+					<motion.div
+						initial="hidden"
+						animate="visible"
+						variants={containerVariants}
+						className="relative"
+					>
+						<Header />
+						<motion.section variants={sectionVariants}>
+							<HeroSection />
+						</motion.section>
+						<motion.section variants={sectionVariants}>
+							<AboutSection />
+						</motion.section>
+						<motion.section variants={sectionVariants}>
+							<CoreMembersSection />
+						</motion.section>
+						<motion.section variants={sectionVariants}>
+							<HeadsSection />
+						</motion.section>
+						<motion.section variants={sectionVariants}>
+							<EventsSection />
+						</motion.section>
+						<motion.section variants={sectionVariants}>
+							<ContactSection />
+						</motion.section>
+						<Footer />
+					</motion.div>
+				)}
+			</AnimatePresence>
+		);
 }
 
