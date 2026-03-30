@@ -66,7 +66,7 @@ export default function Header() {
 					>
 						<Link
 							href="/"
-							className="group flex items-center gap-3 rounded-xl px-2 py-1.5"
+							className="group flex min-w-0 items-center gap-2 rounded-xl px-1 py-1.5 sm:gap-3 sm:px-2"
 						>
 							<motion.div
 								className="relative h-9 w-9 overflow-hidden rounded-full ring-1 ring-primary/25"
@@ -82,11 +82,11 @@ export default function Header() {
 									priority
 								/>
 							</motion.div>
-							<div className="leading-tight">
-								<p className="text-sm font-semibold tracking-[0.14em] text-foreground">
+							<div className="hidden leading-tight min-[390px]:block">
+								<p className="text-xs font-semibold tracking-[0.12em] text-foreground sm:text-sm sm:tracking-[0.14em]">
 									BULLS AND BEARS
 								</p>
-								<p className="text-[10px] tracking-[0.2em] text-muted-foreground">
+								<p className="text-[10px] tracking-[0.16em] text-muted-foreground sm:tracking-[0.2em]">
 									FINANCE CLUB
 								</p>
 							</div>

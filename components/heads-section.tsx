@@ -16,7 +16,6 @@ import Sonit from "@/public/teamImages/Sonit Agrawal.jpg";
 import Parva from "@/public/teamImages/Parva Shah.jpg";
 import Shreya from "@/public/teamImages/Shreya Nair.jpeg";
 import Arjun from "@/public/teamImages/Arjun Prajapati.jpeg";
-import placeholder from "@/public/bull-logo.png";
 
 const departmentHeads = [
 	{
@@ -156,7 +155,7 @@ export default function HeadsSection() {
 								<MemberCard
 									name={head.name}
 									position={head.position}
-									image={head.image}
+									image={head.image.src}
 									bio={head.bio}
 									linkedin={head.linkedin}
 									instagram={head.instagram}
@@ -169,7 +168,7 @@ export default function HeadsSection() {
 					<Button
 						variant="outline"
 						size="icon"
-						className={`absolute -left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 backdrop-blur-sm ${
+						className={`absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 backdrop-blur-sm md:-left-4 md:left-auto ${
 							!canScrollLeft ? "opacity-0" : "opacity-100"
 						} transition-opacity duration-300`}
 						onClick={() => scroll("left")}
@@ -181,7 +180,7 @@ export default function HeadsSection() {
 					<Button
 						variant="outline"
 						size="icon"
-						className={`absolute -right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 backdrop-blur-sm ${
+						className={`absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 backdrop-blur-sm md:-right-4 md:right-auto ${
 							!canScrollRight ? "opacity-0" : "opacity-100"
 						} transition-opacity duration-300`}
 						onClick={() => scroll("right")}

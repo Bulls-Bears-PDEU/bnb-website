@@ -85,7 +85,7 @@ export default function HeadsSection() {
 					<Button
 						variant="outline"
 						size="icon"
-						className={`absolute -left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 backdrop-blur-sm ${
+						className={`absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 backdrop-blur-sm md:-left-4 md:left-auto ${
 							!canScrollLeft ? "opacity-0" : "opacity-100"
 						} transition-opacity duration-300`}
 						onClick={() => scroll("left")}
@@ -97,7 +97,7 @@ export default function HeadsSection() {
 					<Button
 						variant="outline"
 						size="icon"
-						className={`absolute -right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 backdrop-blur-sm ${
+						className={`absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 backdrop-blur-sm md:-right-4 md:right-auto ${
 							!canScrollRight ? "opacity-0" : "opacity-100"
 						} transition-opacity duration-300`}
 						onClick={() => scroll("right")}
