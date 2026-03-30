@@ -251,9 +251,6 @@ export default function EventGallerySection() {
 												/>
 											</div>
 											<div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-											<div className="absolute bottom-0 p-3 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
-												<p className="text-sm font-medium">{image.alt}</p>
-											</div>
 										</motion.div>
 									))}
 								</div>
@@ -330,9 +327,6 @@ export default function EventGallerySection() {
 									/>
 								</div>
 								<div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 via-black/60 to-transparent text-white">
-									<h3 className="font-semibold">
-										{filteredImages[selectedImage].alt}
-									</h3>
 									<span className="text-xs mt-1 inline-block rounded-full bg-white/15 px-2 py-0.5 border border-white/20">
 										{filteredImages[selectedImage].category}
 									</span>

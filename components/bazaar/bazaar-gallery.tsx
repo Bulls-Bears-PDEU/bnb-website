@@ -11,35 +11,35 @@ const galleryImages = [
 		src: encodeURI(
 			"/events/Bazaar/WhatsApp Image 2026-03-24 at 11.47.51 PM (1).jpeg",
 		),
-		alt: "Bazaar event highlight 1",
+		alt: "Bazaar photo",
 		category: "Bazaar",
 	},
 	{
 		src: encodeURI(
 			"/events/Bazaar/WhatsApp Image 2026-03-24 at 11.47.51 PM (2).jpeg",
 		),
-		alt: "Bazaar event highlight 2",
+		alt: "Bazaar photo",
 		category: "Bazaar",
 	},
 	{
 		src: encodeURI(
 			"/events/Bazaar/WhatsApp Image 2026-03-24 at 11.47.52 PM (1).jpeg",
 		),
-		alt: "Bazaar event highlight 3",
+		alt: "Bazaar photo",
 		category: "Bazaar",
 	},
 	{
 		src: encodeURI(
 			"/events/Bazaar/WhatsApp Image 2026-03-24 at 11.47.52 PM (2).jpeg",
 		),
-		alt: "Bazaar event highlight 4",
+		alt: "Bazaar photo",
 		category: "Bazaar",
 	},
 	{
 		src: encodeURI(
 			"/events/Bazaar/WhatsApp Image 2026-03-24 at 11.47.53 PM.jpeg",
 		),
-		alt: "Bazaar event highlight 5",
+		alt: "Bazaar photo",
 		category: "Bazaar",
 	},
 ];
@@ -278,11 +278,7 @@ export default function BazaarGallery() {
 											priority
 										/>
 									</div>
-									<div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 text-white">
-										<span className="mt-1 inline-block rounded-full border border-white/20 bg-white/15 px-2 py-0.5 text-xs">
-											{galleryImages[selectedImage].category}
-										</span>
-									</div>
+									<div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 text-white" />
 								</motion.div>
 							</motion.div>
 						)}
