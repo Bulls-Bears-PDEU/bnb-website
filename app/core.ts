@@ -33,7 +33,7 @@ const coreMembers = [
 		position: "Treasurer",
 		image: Mohnish,
 		bio: "Financial discipline is the foundation of wealth creation. He ensures that structured financial management and prudent risk-taking are at the core of every decision. His focus is on optimizing resources, balancing liquidity, and capitalizing on sustainable investment opportunities that generate long-term financial stability while mitigating unnecessary exposure.",
-		//linkedin: "https://linkedin.com",
+		linkedin: "https://www.linkedin.com/in/mohnish-pathak-993634282",
 		//instagram: "https:////instagram.com",
 	},
 ];
