@@ -14,7 +14,8 @@ import Anand from "@/public/teamImages/Anand Zanzmeriya.jpg";
 import Mishthi from "@/public/teamImages/Mishthi Shah.jpg";
 import Sonit from "@/public/teamImages/Sonit Agrawal.jpg";
 import Parva from "@/public/teamImages/Parva Shah.jpg";
-// import Shreya from "@/public/teamImages/Shreya Nair.jpg";
+import Shreya from "@/public/teamImages/Shreya Nair.jpeg";
+import Arjun from "@/public/teamImages/Arjun Prajapati.jpeg";
 import placeholder from "@/public/bull-logo.png";
 
 const departmentHeads = [
@@ -77,7 +78,7 @@ const departmentHeads = [
 	{
 		name: "Shreya Nair",
 		position: "Head of Graphic Design",
-		image: placeholder,
+		image: Shreya,
 		bio: "Maintains connections with alumni and organizes networking events to benefit current members.",
 		linkedin: "https://linkedin.com",
 		instagram: "https://instagram.com",
@@ -85,7 +86,7 @@ const departmentHeads = [
 	{
 		name: "Arjun Prajapati",
 		position: "Head of Graphic Design",
-		image: placeholder,
+		image: Arjun,
 		bio: "Maintains connections with alumni and organizes networking events to benefit current members.",
 		linkedin: "https://linkedin.com",
 		instagram: "https://instagram.com",
