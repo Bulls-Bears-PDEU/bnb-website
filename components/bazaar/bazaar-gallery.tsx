@@ -219,9 +219,6 @@ export default function BazaarGallery() {
 											sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
 										/>
 										<div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-										<div className="absolute bottom-0 p-3 text-white opacity-0 translate-y-2 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-											<p className="text-sm font-medium">{image.alt}</p>
-										</div>
 									</div>
 								</motion.div>
 							))}
@@ -282,9 +279,6 @@ export default function BazaarGallery() {
 										/>
 									</div>
 									<div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 text-white">
-										<h3 className="font-semibold">
-											{galleryImages[selectedImage].alt}
-										</h3>
 										<span className="mt-1 inline-block rounded-full border border-white/20 bg-white/15 px-2 py-0.5 text-xs">
 											{galleryImages[selectedImage].category}
 										</span>
