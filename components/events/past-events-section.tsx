@@ -5,64 +5,7 @@ import { motion } from "framer-motion"
 import { Calendar, Users } from "lucide-react"
 import Image from "next/image";
 import { optimizeCloudinaryUrl } from "@/lib/image-utils";
-
-type Event = {
-  title: string;
-  date: string;
-  time?: string;
-  location?: string;
-  description: string;
-  image: string | { src: string };
-  capacity?: string;
-  registrationOpen?: boolean;
-  attendees?: string;
-  highlights?: string[];
-};
-
-
-const pastEvents: Event[] = [
-	{
-		title: "Introductory Session",
-		date: "March 22, 2025",
-		description:
-			"A financial literacy initiative in collaboration with Rotaract, empowering security guards, helpers, and support staff with essential knowledge on managing finances, investing wisely, avoiding scams, and accessing beneficial schemes.",
-		image: "/posters/INTRO.jpeg",
-		attendees: "75+",
-		highlights: [
-			"Industry expert keynotes",
-			"Career fair",
-			"Networking opportunities",
-		],
-	},
-	{
-		title: "Spend",
-		date: "March 21, 2025",
-		description:
-			"A strategic finance game where participants analyze how different sectors react to news and economic changes. Understand past trends, evaluate market performance, and uncover the impact of news on investments.",
-		image: "/posters/SPEND.jpeg",
-		attendees: "50+",
-		highlights: [
-			"Hands-on trading simulation",
-			"understanding basics",
-			"DeFi exploration",
-			"easy trading",
-		],
-	},
-	{
-		title: "Guesstimate",
-		date: "October 20, 2024",
-		description:
-			"Navigate through a market crash! Make strategic decisions to minimize losses and emerge as the most resilient investor.",
-		image: "/posters/GUESSTIMATE.jpeg",
-		attendees: "60+",
-		highlights: [
-			"Real-time market data",
-			"Expert mentoring",
-			"protection of assets",
-			"strategic decision making",
-		],
-	},
-];
+import { events } from "@/app/events";
 
 export default function PastEventsSection() {
   const [ref, inView] = useInView({
@@ -91,7 +34,7 @@ export default function PastEventsSection() {
 					</motion.div>
 
 					<div className="grid gap-12 md:gap-16">
-						{pastEvents.map((event, index) => (
+						{events.map((event, index) => (
 							<motion.div
 								key={event.title}
 								initial={{ opacity: 0, y: 50 }}
@@ -143,22 +86,10 @@ export default function PastEventsSection() {
 												<Calendar className="h-4 w-4 text-primary" />
 												<span>{event.date}</span>
 											</div>
-											{event.time && (
-												<div className="flex items-center gap-1">
-													<span className="h-4 w-4 text-primary">⏱️</span>
-													<span>{event.time}</span>
-												</div>
-											)}
-											{event.attendees && (
+											{event.participants && (
 												<div className="flex items-center gap-1">
 													<Users className="h-4 w-4 text-primary" />
-													<span>{event.attendees} attendees</span>
-												</div>
-											)}
-											{event.location && (
-												<div className="flex items-center gap-1">
-													<span className="h-4 w-4 text-primary">📍</span>
-													<span>{event.location}</span>
+													<span>{event.participants.join(", ")}</span>
 												</div>
 											)}
 										</div>

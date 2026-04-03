@@ -6,50 +6,7 @@ import { Calendar, Users } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-
-const events = [
-	{
-		title: "Introductory Session",
-		date: "March 22, 2025",
-		description:
-			"A financial literacy initiative in collaboration with Rotaract, empowering security guards, helpers, and support staff with essential knowledge on managing finances, investing wisely, avoiding scams, and accessing beneficial schemes.",
-		image: "/posters/INTRO.jpeg",
-		attendees: "75+",
-		highlights: [
-			"Industry expert keynotes",
-			"Career fair",
-			"Networking opportunities",
-		],
-	},
-	{
-		title: "Spend",
-		date: "March 21, 2025",
-		description:
-			"A strategic finance game where participants analyze how different sectors react to news and economic changes. Understand past trends, evaluate market performance, and uncover the impact of news on investments.",
-		image: "/posters/SPEND.jpeg",
-		attendees: "50+",
-		highlights: [
-			"Hands-on trading simulation",
-			"understanding basics",
-			"DeFi exploration",
-			"easy trading",
-		],
-	},
-	{
-		title: "Guesstimate",
-		date: "October 20, 2024",
-		description:
-			"Navigate through a market crash! Make strategic decisions to minimize losses and emerge as the most resilient investor.",
-		image: "/posters/GUESSTIMATE.jpeg",
-		attendees: "60+",
-		highlights: [
-			"Real-time market data",
-			"Expert mentoring",
-			"protection of assets",
-			"strategic decision making",
-		],
-	},
-];
+import { events } from "@/app/events";
 
 export default function EventsSection() {
   const [ref, inView] = useInView({
@@ -135,7 +92,7 @@ export default function EventsSection() {
 											</div>
 											<div className="flex items-center gap-1">
 												<Users className="h-4 w-4" />
-												<span>{event.attendees} attendees</span>
+												<span>{event.participants} attendees</span>
 											</div>
 										</div>
 										<p className="text-foreground/80">{event.description}</p>
